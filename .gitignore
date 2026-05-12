@@ -1,7 +1,10 @@
 ckpt/
 data/
 data_output/
-data_v1/
+# data_v1/
+# Ignore files larger than 100MB in data_v1
+data_v1/esci/esci.item.json
+data_v1/esci/esci.emb.npy
 results/
 __pycache__/
 *.pyc
