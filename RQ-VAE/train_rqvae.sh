@@ -1,0 +1,21 @@
+CUDA_VISIBLE_DEVICES=3 python main.py \
+  --model_type rqvae \
+  --device cuda \
+  --data_path /data/LLM4Search/data_v1/esci/esci.emb.npy \
+  --use_inner_triplet_loss 1 \
+  --use_outer_con_loss 1 \
+  --use_qd_align_loss 1 \
+  --alpha 0.1 \
+  --beta 0.1 \
+  --ckpt_dir ../ckpt/RQ-VAE/data_v1/size_64/ \
+  --eval_step 1 \
+  --epochs 200 \
+  --batch_size 16384 \
+  --valid_batch_size 32768 \
+  --num_workers 16 \
+  --num_emb_list 64 64 64 64 \
+  --sk_epsilons 0.0 0.0 0.0 0.003 \
+  --qd_align 0.002 \
+  --trade_off_inner_outer 1.0 0.75 0.25 0.0 \
+  --inner_outer_layer_weight 0.01 0.01 0.01 0.01 \
+  --cf_emb ""

@@ -1,0 +1,8 @@
+ckpt/
+data/
+data_output/
+data_v1/
+results/
+__pycache__/
+*.pyc
+.DS_Store
