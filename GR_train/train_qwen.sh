@@ -4,8 +4,9 @@ eval "$(conda shell.bash hook)" 2>/dev/null
 conda activate qwen-3.5
 
 DATASET=esci
-# Use default ./ckpt in script, Python code will automatically translate it to /data/LLM4Search/ckpt/GR/...
-OUTPUT_DIR=./ckpt
+# Generate timestamp in bash to ensure all DDP processes use the same directory
+TIMESTAMP=$(date +"%b-%d-%Y_%H-%M-%S")
+OUTPUT_DIR="/data/LLM4Search/ckpt/GR/Qwen3_MERGE_ranking_${TIMESTAMP}"
 torchrun --nproc_per_node=8 --master_port=2314 /data/LLM4Search/GR_train/finetune_qwen.py \
     --output_dir $OUTPUT_DIR \
     --bf16 \
